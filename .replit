@@ -1,2 +1,3 @@
 language = "bash"
-run = "bash 001/sum.sh"
+run = "bash 001/pseudoinverse.sh"
+#run = "bash 001/sum.sh"
