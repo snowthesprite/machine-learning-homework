@@ -1,3 +1,5 @@
+global total_time = 0
+
 function transative_matrix(matrix) 
     t_matrix = [[],[]]
     for row in matrix 
@@ -29,15 +31,14 @@ end
 y = [[0],[1],[4],[9]]
 coeffs = [[0,1],[1,1],[2,1],[3,1]]
 
-println(coeffs)
-trans_coeffs = transative_matrix(coeffs)
-println(trans_coeffs)
-square_coeffs = multiply_matrix(trans_coeffs,coeffs)
-println(square_coeffs)
-inverse_coeffs = inverse_matrix(square_coeffs)
-println(inverse_coeffs)
-finished_y = multiply_matrix(trans_coeffs,y)
-finished_y = multiply_matrix(inverse_coeffs, finished_y)
-println(finished_y)
+for _ in 1:10
+    current_time = time_ns()
+    trans_coeffs = transative_matrix(coeffs)
+    square_coeffs = multiply_matrix(trans_coeffs,coeffs)
+    inverse_coeffs = inverse_matrix(square_coeffs)
+    finished_y = multiply_matrix(trans_coeffs,y)
+    finished_y = multiply_matrix(inverse_coeffs, finished_y)
+    global total_time += time_ns() - current_time
+end
 
-#print([2,3,4])
+println(total_time/10^10)

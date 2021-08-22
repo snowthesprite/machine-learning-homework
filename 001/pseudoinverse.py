@@ -1,3 +1,6 @@
+import time
+total_time = 0
+
 def transative_matrix(matrix) :
     t_matrix = [[],[]]
     for row in matrix :
@@ -22,9 +25,13 @@ def multiply_matrix(matrix_1, matrix_2) :
 y = [[0],[1],[4],[9]]
 coeffs = [[0,1],[1,1],[2,1],[3,1]]
 
-trans_coeffs = transative_matrix(coeffs)
-square_coeffs = multiply_matrix(trans_coeffs,coeffs)
-inverse_coeffs = inverse_matrix(square_coeffs)
-finished_y = multiply_matrix(trans_coeffs,y)
-finished_y = multiply_matrix(inverse_coeffs, finished_y)
-print(finished_y)
+for _ in range(10) :
+    start_time = time.time()
+    trans_coeffs = transative_matrix(coeffs)
+    square_coeffs = multiply_matrix(trans_coeffs,coeffs)
+    inverse_coeffs = inverse_matrix(square_coeffs)
+    finished_y = multiply_matrix(trans_coeffs,y)
+    finished_y = multiply_matrix(inverse_coeffs, finished_y)
+    total_time += time.time() - start_time
+
+print(total_time/10)
