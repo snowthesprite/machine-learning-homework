@@ -33,14 +33,18 @@ end
             
 global total_time = 0
 
-for __ in 1:10 
+for time in 1:10 
     current_time = time_ns()
     for _ in 1:2
         gradient = calc_gradient()
         for coeff_id in 1:2 
             b_coeffs[coeff_id] -= alpha * gradient[coeff_id]
         end
+        if time == 1 
+            println(b_coeffs)
+        end
     end
+    
     global total_time += time_ns() - current_time
 end
 

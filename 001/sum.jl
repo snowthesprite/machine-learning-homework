@@ -10,5 +10,5 @@ for _ in 1:10
 end
 
 #print(total_time)
-print(total_time/10^10)
+println(total_time/10^10)
 

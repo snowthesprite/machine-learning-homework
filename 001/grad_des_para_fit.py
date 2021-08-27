@@ -30,10 +30,12 @@ def calc_gradient() :
 total_time = 0
 for __ in range(10) :
     start_time = time.time()
-    for _ in range(10000) :
+    for _ in range(2) :
         gradient = calc_gradient()
         for coeff_id in range(2) :
             b_coeffs[coeff_id] -= alpha * gradient[coeff_id]
+        if __ == 1 :
+            print(b_coeffs)
     total_time += time.time() - start_time
 
 print(total_time/10)

@@ -31,6 +31,8 @@ for __ in range(10) :
         gradient = compute_gradient()
         for index in range(len(point)) :
             point[index] = point[index] - alpha * gradient[index]
+        if __ == 1 :
+            print(point)
     total_time += time.time() - start_time
 
 print(total_time/10)

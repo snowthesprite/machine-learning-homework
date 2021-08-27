@@ -1,3 +1,3 @@
 language = "bash"
-run = "bash 001/grad_des_para_fit.sh"
+run = "bash 001/001.sh"
 #run = "bash 001/sum.sh"

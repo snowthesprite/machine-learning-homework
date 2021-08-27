@@ -34,4 +34,5 @@ for _ in range(10) :
     finished_y = multiply_matrix(inverse_coeffs, finished_y)
     total_time += time.time() - start_time
 
+print(finished_y)
 print(total_time/10)

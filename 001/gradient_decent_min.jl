@@ -29,12 +29,15 @@ end
 
 global total_time = 0
 
-for __ in 1:10 
+for time in 1:10 
     current_time = time_ns()
     for _ in 1:2
         gradient = compute_gradient()
         for index in 1:2 
             point[index] = point[index] - alpha * gradient[index]
+        end
+        if time == 1
+            println(point)
         end
     end
     global total_time += time_ns() - current_time

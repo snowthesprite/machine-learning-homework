@@ -39,6 +39,7 @@ for _ in 1:10
     finished_y = multiply_matrix(trans_coeffs,y)
     finished_y = multiply_matrix(inverse_coeffs, finished_y)
     global total_time += time_ns() - current_time
+    println(finished_y)
 end
 
 println(total_time/10^10)
